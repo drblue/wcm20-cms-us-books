@@ -13,6 +13,12 @@ define('WCMB_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WCMB_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 /**
+ * Include custom post types and custom taxonomies.
+ */
+require_once(WCMB_PLUGIN_DIR . 'includes/custom-post-types/wcmb_book.php');
+require_once(WCMB_PLUGIN_DIR . 'includes/custom-taxonomies/wcmb_genre.php');
+
+/**
  * Include dependencies.
  */
 require_once(WCMB_PLUGIN_DIR . 'includes/functions.php');
