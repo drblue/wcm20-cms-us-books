@@ -51,3 +51,26 @@ function wcmb_load_textdomain($mofile, $domain) {
 	return $mofile;
 }
 add_filter('load_textdomain_mofile', 'wcmb_load_textdomain', 10, 2);
+
+function wcmb_filter_the_content($content) {
+	if (get_post_type() === 'wcmb_book' && is_single()) {
+		$content .= sprintf('
+			<dl class="book-details">
+				<dt>ISBN</dt>
+				<dd>%s</dd>
+
+				<dt>Pages</dt>
+				<dd>%d pages</dd>
+
+				<dt>Genres</dt>
+				<dd>%s</dd>
+			</dl>',
+			get_field('isbn'),
+			get_field('pages'),
+			get_the_term_list(get_queried_object(), 'wcmb_genre', '', ', ', '')
+		);
+	}
+
+	return $content;
+}
+add_filter('the_content', 'wcmb_filter_the_content');
