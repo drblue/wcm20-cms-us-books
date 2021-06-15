@@ -13,6 +13,12 @@ function wcmb_acf_settings_url($url) {
 	return WCMB_ACF_URL;
 }
 
+// Change path for Local JSON to point to our plugin
+add_filter('acf/settings/save_json', 'wcmb_acf_settings_save_json');
+function wcmb_acf_settings_save_json() {
+	return WCMB_PLUGIN_DIR . 'includes/acf-json';
+}
+
 // (Optional) Hide the ACF admin menu item (false = hide menu, true = show menu)
 // add_filter('acf/settings/show_admin', 'wcmb_acf_settings_show_admin');
 function wcmb_acf_settings_show_admin($show_admin) {
