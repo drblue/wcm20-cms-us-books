@@ -52,6 +52,12 @@ function wcmb_load_textdomain($mofile, $domain) {
 }
 add_filter('load_textdomain_mofile', 'wcmb_load_textdomain', 10, 2);
 
+/**
+ * Filter the content on single book posts.
+ *
+ * @param string $content
+ * @return string
+ */
 function wcmb_filter_the_content($content) {
 	if (get_post_type() === 'wcmb_book' && is_single()) {
 		$content .= sprintf('
