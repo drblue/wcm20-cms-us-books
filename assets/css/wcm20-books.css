@@ -1,0 +1,9 @@
+.single-wcmb_book .book-details {
+	background-color: #efefef;
+	margin-top: 1.5rem;
+	padding: 2rem 2.5rem;
+}
+
+.single-wcmb_book .book-details dd:last-child {
+	margin-bottom: 0;
+}

@@ -79,7 +79,7 @@ function wcmb_filter_the_content($content) {
 
 	return $content;
 }
-// add_filter('the_content', 'wcmb_filter_the_content');
+add_filter('the_content', 'wcmb_filter_the_content');
 
 /**
  * Filter single template to add fallback to plugin template file.
@@ -101,4 +101,4 @@ function wcmb_filter_single_template($template, $type, $templates) {
 
 	return $template;
 }
-add_filter('single_template', 'wcmb_filter_single_template', 10, 3);
+// add_filter('single_template', 'wcmb_filter_single_template', 10, 3);
