@@ -21,5 +21,6 @@ require_once(WCMB_PLUGIN_DIR . 'includes/custom-taxonomies/wcmb_genre.php');
 /**
  * Include dependencies.
  */
+require_once(WCMB_PLUGIN_DIR . 'includes/acf-loader.php');
 require_once(WCMB_PLUGIN_DIR . 'includes/functions.php');
 require_once(WCMB_PLUGIN_DIR . 'includes/widgets.php');
