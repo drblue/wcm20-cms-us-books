@@ -79,4 +79,26 @@ function wcmb_filter_the_content($content) {
 
 	return $content;
 }
-add_filter('the_content', 'wcmb_filter_the_content');
+// add_filter('the_content', 'wcmb_filter_the_content');
+
+/**
+ * Filter single template to add fallback to plugin template file.
+ *
+ * @param string $template
+ * @param string $type
+ * @param string[] $templates
+ * @return string
+ */
+function wcmb_filter_single_template($template, $type, $templates) {
+	if (get_post_type(get_queried_object()) === 'wcmb_book') {
+		$book_template = locate_template('single-wcmb_book.php');
+		if ($book_template !== $template) {
+			// neither child nor parent theme had a template file specific for wcmb_book
+			// so we'll provide the template file from our plugin
+			$template = WCMB_PLUGIN_DIR . 'templates/single-wcmb_book.php';
+		}
+	}
+
+	return $template;
+}
+add_filter('single_template', 'wcmb_filter_single_template', 10, 3);
